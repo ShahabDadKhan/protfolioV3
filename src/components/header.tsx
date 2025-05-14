@@ -1,0 +1,89 @@
+import styled, { useTheme } from "styled-components";
+
+interface HeaderProps {
+  isDarkMode: boolean;
+  setIsDarkMode: (value: boolean) => void;
+}
+
+export default function Header({ isDarkMode, setIsDarkMode }: HeaderProps) {
+  return (
+    <HeaderNav bgColor="#D2AEFF">
+      <Name href="">Shahab</Name>
+      <NavItems className="nav-items">
+        <span>About</span>
+        <span>Experience</span>
+        <span>Projects</span>
+      </NavItems>
+      <ResumeContainer>
+        {/* <ResumeBtn href="">Khan</ResumeBtn> */}
+        <ToggleButton onClick={() => setIsDarkMode(!isDarkMode)}>
+          {isDarkMode ? "Dark Mode" : "Light Mode"}
+        </ToggleButton>
+      </ResumeContainer>
+    </HeaderNav>
+  );
+}
+
+// Defining the props type
+interface HeaderNavProps {
+  bgColor: string;
+}
+
+const ResumeContainer = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+`;
+
+const NavItems = styled.div`
+  display: flex;
+  gap: 60px;
+  color: ${({ theme }) => theme.textColor};
+
+  & > * {
+    cursor: pointer;
+  }
+`;
+const HeaderNav = styled.nav<HeaderNavProps>`
+  position: fixed;
+  top: 3%;
+  left: 2.5%;
+  // background: ${(props) => props.bgColor}; /* dynamic background */
+  width: 95%;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: ${({ theme }) => theme.bgColor};
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+`;
+
+const Name = styled.a`
+  font-family: "Bad Script", cursive;
+  font-size: 35px;
+  margin-left: 12px;
+`;
+
+const ResumeBtn = styled.a`
+  font-family: "Bad Script", cursive;
+  font-size: 35px;
+  margin-right: 12px;
+`;
+
+const ToggleButton = styled.button`
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.bgColor};
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
