@@ -1,4 +1,6 @@
 import styled, { useTheme } from "styled-components";
+import SunIcon from "../assets/svg/SunIcon.jsx";
+import MoonIcon from "../assets/svg/MoonIcon.jsx";
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -7,7 +9,7 @@ interface HeaderProps {
 
 export default function Header({ isDarkMode, setIsDarkMode }: HeaderProps) {
   return (
-    <HeaderNav bgColor="#D2AEFF">
+    <HeaderNav>
       <Name href="">Shahab</Name>
       <NavItems className="nav-items">
         <span>About</span>
@@ -17,7 +19,7 @@ export default function Header({ isDarkMode, setIsDarkMode }: HeaderProps) {
       <ResumeContainer>
         {/* <ResumeBtn href="">Khan</ResumeBtn> */}
         <ToggleButton onClick={() => setIsDarkMode(!isDarkMode)}>
-          {isDarkMode ? "Dark Mode" : "Light Mode"}
+          {isDarkMode ? <SunIcon width="30px" /> : <MoonIcon width="30px" />}
         </ToggleButton>
       </ResumeContainer>
     </HeaderNav>
@@ -25,9 +27,9 @@ export default function Header({ isDarkMode, setIsDarkMode }: HeaderProps) {
 }
 
 // Defining the props type
-interface HeaderNavProps {
-  bgColor: string;
-}
+// interface HeaderNavProps {
+//   bgColor: string;
+// }
 
 const ResumeContainer = styled.div`
   /* display: flex;
@@ -39,16 +41,17 @@ const ResumeContainer = styled.div`
 const NavItems = styled.div`
   display: flex;
   gap: 60px;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.white};
 
   & > * {
     cursor: pointer;
   }
 `;
-const HeaderNav = styled.nav<HeaderNavProps>`
+const HeaderNav = styled.nav`
   position: fixed;
   top: 3%;
   left: 2.5%;
+  padding: 5px 15px;
   // background: ${(props) => props.bgColor}; /* dynamic background */
   width: 95%;
   height: 60px;
@@ -57,7 +60,7 @@ const HeaderNav = styled.nav<HeaderNavProps>`
   align-items: center;
   justify-content: space-between;
 
-  background: ${({ theme }) => theme.bgColor};
+  background: ${({ theme }) => theme.bgColorSecondary};
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* Safari support */
 `;
@@ -66,6 +69,7 @@ const Name = styled.a`
   font-family: "Bad Script", cursive;
   font-size: 35px;
   margin-left: 12px;
+  color: ${({ theme }) => theme.white};
 `;
 
 const ResumeBtn = styled.a`
@@ -78,12 +82,13 @@ const ToggleButton = styled.button`
   padding: 5px 12px;
   border: none;
   border-radius: 5px;
-  background-color: ${({ theme }) => theme.textColor};
-  color: ${({ theme }) => theme.bgColor};
+  background-color: transparent;
+  /* color: ${({ theme }) => theme.bgColor}; */
   cursor: pointer;
   font-size: 14px;
 
-  &:hover {
-    opacity: 0.8;
+  &:focus-visible,
+  &:focus {
+    outline: none;
   }
 `;
