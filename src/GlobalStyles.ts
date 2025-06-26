@@ -5,21 +5,22 @@ export const GlobalStyle = createGlobalStyle`
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* text-align: center; */
-
   color-scheme: light dark;
-  /* color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
-  /* font-synthesis: none; */
-  /* text-rendering: optimizeLegibility; */
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
+  width: 100%;
 }
+
+  body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 0px;
+    background-color: ${({ theme }) => theme.bgColorPrimary};
+    color: ${({ theme }) => theme.textColor};
+    font-family: Montserrat,Poppins,Quicksand,sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
 a {
   font-weight: 500;
@@ -54,6 +55,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.section {
+  max-width: 1280px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -67,13 +72,5 @@ button:focus-visible {
   }
 }
 
-  body {
-    margin: 0;
-    background-color: ${({ theme }) => theme.bgColorPrimary};
-    color: ${({ theme }) => theme.textColor};
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+
 `;

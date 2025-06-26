@@ -50,7 +50,7 @@ const NavItems = styled.div`
 const HeaderNav = styled.nav`
   position: fixed;
   top: 3%;
-  left: 2.5%;
+  left: 2%;
   padding: 5px 15px;
   // background: ${(props) => props.bgColor}; /* dynamic background */
   width: 95%;

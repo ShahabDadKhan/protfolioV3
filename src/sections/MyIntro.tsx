@@ -7,94 +7,16 @@ interface IntroSectionProps {
 }
 
 const IntroSection: React.FC<IntroSectionProps> = () => {
-  const [showGoToTop, setShowGoToTop] = useState<boolean>(false);
-  const goToTopRef = useRef<HTMLAnchorElement>(null);
-
-  const scrollIntoDiv = () => {
-    if (showGoToTop) {
-      document
-        .getElementById("app-bar")
-        ?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      document
-        .getElementById("about-me")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const scrollListener = () => {
-    const scrollTop =
-      window.pageYOffset !== undefined
-        ? window.pageYOffset
-        : (
-            document.documentElement ||
-            document.body.parentNode ||
-            document.body
-          ).scrollTop;
-
-    if (scrollTop > 500) {
-      // Hide go to top on mobile and tablet when keypad comes
-      if (window.innerWidth <= 800 && window.innerHeight <= 600) {
-        setShowGoToTop(false);
-      } else {
-        setShowGoToTop(true);
-      }
-    } else {
-      setShowGoToTop(false);
-    }
-  };
-
-  const rotateGoToTop = (value: boolean) => {
-    if (!goToTopRef.current) return;
-
-    goToTopRef.current.style.transitionDuration = "0.3s";
-    goToTopRef.current.style.transform = value
-      ? "rotate(0deg)"
-      : "rotate(-180deg)";
-  };
-
-  // Handle scroll events
-  useEffect(() => {
-    window.addEventListener("scroll", scrollListener);
-
-    return () => {
-      window.removeEventListener("scroll", scrollListener);
-    };
-  }, []);
-
-  // Handle resize events
-  useEffect(() => {
-    const handleResize = () => {
-      // Add your resize logic here if needed
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // Rotate effect when showGoToTop changes
-  useEffect(() => {
-    rotateGoToTop(showGoToTop);
-  }, [showGoToTop]);
-
   return (
     <Container id="my-intro">
       <Row>
-        <Column
-          orderSm={1}
-          order={2}
-          alignSelf="center"
-          cols={12}
-          sm={7}
-          md={4}
-        >
-          <HomeText1>
-            Hello ✌🏼, <br />
-            I'm <HighlightSpan>Shahab</HighlightSpan>
-          </HomeText1>
+        <Column>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Hello>Hello ✌🏼,</Hello>
+            <IamShahab>
+              I'm <HighlightSpan>Shahab</HighlightSpan>
+            </IamShahab>
+          </div>
           <HomeText2>
             A
             <DynamicTextList>
@@ -112,30 +34,11 @@ const IntroSection: React.FC<IntroSectionProps> = () => {
           </HomeText2>
         </Column>
 
-        <Column
-          textCenter
-          orderSm={2}
-          order={1}
-          cols={10}
-          offsetMd={2}
-          sm={4}
-          md={4}
-        >
+        <Column>
           <Avatar>
             <img src={profilePhoto} alt="Profile" />
           </Avatar>
         </Column>
-      </Row>
-
-      <Row justifyCenter>
-        <ScrollToTop
-          id="goToTop"
-          ref={goToTopRef}
-          onClick={scrollIntoDiv}
-          data-cursor-hover
-        >
-          <Icon>↑</Icon>
-        </ScrollToTop>
       </Row>
     </Container>
   );
@@ -152,41 +55,37 @@ const slideAnimation = keyframes`
 
 // Styled Components
 const Container = styled.div`
-  height: 84vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
 `;
 
 const Row = styled.div<{ justifyCenter?: boolean }>`
   height: 95%;
   display: flex;
   align-items: center;
-  ${(props) => props.justifyCenter && "justify-content: center"};
+  justify-content: space-between;
+  width: 45%;
 `;
 
-const Column = styled.div<{
-  order?: number;
-  orderSm?: number;
-  alignSelf?: string;
-  cols?: number;
-  sm?: number;
-  md?: number;
-  offsetMd?: number;
-  textCenter?: boolean;
-}>`
-  ${(props) => props.cols && `width: ${(props.cols / 12) * 100}%`};
-  ${(props) => props.textCenter && "text-align: center"};
-  ${(props) => props.order && `order: ${props.order}`};
-  ${(props) => props.alignSelf && `align-self: ${props.alignSelf}`};
+const Column = styled.div``;
 
-  @media (min-width: 600px) {
-    ${(props) => props.orderSm && `order: ${props.orderSm}`};
-    ${(props) => props.sm && `width: ${(props.sm / 12) * 100}%`};
-  }
+const IamShahab = styled.span`
+  font-size: 4rem;
+  font-weight: 200;
+  color: ${({ theme }) => theme.textColorPrimary};
 
-  @media (min-width: 960px) {
-    ${(props) => props.md && `width: ${(props.md / 12) * 100}%`};
-    ${(props) =>
-      props.offsetMd && `margin-left: ${(props.offsetMd / 12) * 100}%`};
+  @media (max-width: 768px) {
+    font-size: 2.5em;
+    text-align: center;
   }
+`;
+const Hello = styled.span`
+  font-size: 4.5em;
+  color: ${({ theme }) => theme.textColorPrimary};
+  width: max-content;
+  font-weight: 200;
 `;
 
 const Avatar = styled.div`
@@ -208,23 +107,10 @@ const Avatar = styled.div`
   }
 `;
 
-const HomeText1 = styled.p`
-  font-size: 62px;
-  font-weight: 200;
-
-  @media (max-width: 768px) {
-    text-align: center;
-    font-size: 42px;
-  }
-
-  @media (max-width: 400px) {
-    font-size: 32px;
-  }
-`;
-
 const HomeText2 = styled.div`
   width: 305px;
   display: flex;
+  color: ${({ theme }) => theme.textColorPrimary};
 
   @media (max-width: 768px) {
     display: flex;
@@ -244,10 +130,10 @@ const HighlightSpan = styled.span`
 
 const DynamicTextList = styled.ul`
   overflow: hidden;
-  width: 32%;
+  width: auto;
   height: 20px;
-  padding-left: 4px;
-  margin-right: 4px;
+  margin: 0px 10px;
+  padding: 0px;
 
   @media (max-width: 330px) {
     width: 60%;
@@ -272,22 +158,5 @@ const ListItem = styled.li`
       width: 100%;
       background: black;
     }
-  }
-`;
-
-const ScrollToTop = styled.a`
-  text-decoration: none;
-  position: fixed;
-  bottom: 50px;
-  right: 30px;
-  cursor: pointer;
-`;
-
-const Icon = styled.i`
-  color: white;
-  font-size: 24px;
-
-  &:hover {
-    color: #ffeb3b !important;
   }
 `;
