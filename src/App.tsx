@@ -5,6 +5,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/header";
 import MyIntro from "./sections/MyIntro";
+import AboutMe from "./sections/AboutMe";
 import { darkTheme, lightTheme } from "./Theme";
 import { GlobalStyle } from "./GlobalStyles";
 
@@ -16,6 +17,7 @@ function App() {
       <GlobalStyle />
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <MyIntro />
+      <AboutMe />
     </ThemeProvider>
   );
 }

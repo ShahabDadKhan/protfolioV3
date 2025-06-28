@@ -72,7 +72,7 @@ const Row = styled.div<{ justifyCenter?: boolean }>`
 const Column = styled.div``;
 
 const IamShahab = styled.span`
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 200;
   color: ${({ theme }) => theme.textColorPrimary};
 
@@ -82,7 +82,7 @@ const IamShahab = styled.span`
   }
 `;
 const Hello = styled.span`
-  font-size: 4.5em;
+  font-size: 4rem;
   color: ${({ theme }) => theme.textColorPrimary};
   width: max-content;
   font-weight: 200;
@@ -108,8 +108,10 @@ const Avatar = styled.div`
 `;
 
 const HomeText2 = styled.div`
+  font-size: 1rem;
   width: 305px;
   display: flex;
+  margin-top: 1rem;
   color: ${({ theme }) => theme.textColorPrimary};
 
   @media (max-width: 768px) {
@@ -124,7 +126,7 @@ const HomeText2 = styled.div`
 `;
 
 const HighlightSpan = styled.span`
-  color: #ffeb3b;
+  color: ${({ theme }) => theme.textColorSecondary};
   font-weight: 500;
 `;
 

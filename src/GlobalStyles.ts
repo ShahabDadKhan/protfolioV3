@@ -10,9 +10,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
   body {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     margin: 0px;
     background-color: ${({ theme }) => theme.bgColorPrimary};
     color: ${({ theme }) => theme.textColor};
@@ -34,6 +31,29 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.4em;
+  line-height: 1.1;
+  color: ${({ theme }) => theme.textColorSecondary};
+}
+
+.highlighted-text-primary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.textColorPrimary};
+}
+
+.highlighted-text-secondary {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.textColorTertiary};
+  background-color: ${({ theme }) => theme.textColorSecondary};
+  display: inline-block;
+  transform: rotate(-2deg);
+  padding: 0px 6px;
+  border-radius: 2px;
 }
 
 button {
