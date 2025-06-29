@@ -1,28 +1,83 @@
 import styled from "styled-components";
-import InterectiveIcons from "../components/InterectiveIcons";
-import MoonIcon from "../assets/svg/MoonIcon";
+import ShakyIcon from "../components/ShakyIcon";
+import HtmlIcon from "../assets/svg/HtmlIcon";
+import CssIcon from "../assets/svg/CssIcon";
+import SassIcon from "../assets/svg/SassIcon";
+import JavaScriptIcon from "../assets/svg/JavaScriptIcon";
+import VueIcon from "../assets/svg/VueIcon";
+import NuxtIcon from "../assets/svg/NuxtIcon";
+import ReactIcon from "../assets/svg/ReactIcon";
+import NodeIcon from "../assets/svg/NodeIcon";
+import VuetifyIcon from "../assets/svg/VuetifyIcon";
+import GithubIcon from "../assets/svg/GithubIcon";
+import TypeScriptIcon from "../assets/svg/TypeScriptIcon";
+import TailwindIcon from "../assets/svg/TailwindIcon";
+// import MoonIcon from "../assets/svg/MoonIcon";
+// import MoonIcon from "../assets/svg/MoonIcon";
 
 export default function AboutMe() {
-  const iconData = [
-    {
-      id: "moon",
-      name: "Moon",
-      icon: <MoonIcon />,
-      color: "#E4405F",
-    },
-    // {
-    //   id: "javascript",
-    //   name: "JavaScript",
-    //   icon: <Code />,
-    //   color: "#F7DF1E",
-    // },
-    // {
-    //   id: "react",
-    //   name: "React",
-    //   icon: <FileCode />,
-    //   color: "#61DAFB",
-    // },
-  ];
+  //   const iconData = [
+  //     {
+  //       id: "html",
+  //       name: "Html",
+  //       icon: <HtmlIcon />,
+  //     },
+  //     {
+  //       id: "css",
+  //       name: "Css",
+  //       icon: <CssIcon />,
+  //     },
+  //     {
+  //       id: "scss",
+  //       name: "Scss",
+  //       icon: <SassIcon />,
+  //     },
+  //     {
+  //       id: "javascript",
+  //       name: "Javascript",
+  //       icon: <JavaScriptIcon />,
+  //     },
+  //     {
+  //       id: "vue",
+  //       name: "Vue",
+  //       icon: <VueIcon />,
+  //     },
+  //     {
+  //       id: "nuxt",
+  //       name: "Nuxt",
+  //       icon: <NuxtIcon />,
+  //     },
+  //     {
+  //       id: "react",
+  //       name: "React",
+  //       icon: <ReactIcon />,
+  //     },
+  //     {
+  //       id: "node",
+  //       name: "Node",
+  //       icon: <NodeIcon />,
+  //     },
+  //     {
+  //       id: "vuitify",
+  //       name: "Vuetify",
+  //       icon: <VuetifyIcon />,
+  //     },
+  //     {
+  //       id: "github",
+  //       name: "Github",
+  //       icon: <GithubIcon />,
+  //     },
+  //     {
+  //       id: "typescript",
+  //       name: "TypeScript",
+  //       icon: <TypeScriptIcon />,
+  //     },
+  //     {
+  //       id: "tailwind",
+  //       name: "Tailwind",
+  //       icon: <TailwindIcon />,
+  //     },
+  //   ];
 
   return (
     <AboutMeDiv>
@@ -58,18 +113,99 @@ export default function AboutMe() {
           excitement about what I'm about to discover.
         </span>
       </FirstDiv>
-      <div>
-        <InterectiveIcons
-          key={iconData[0].id}
-          iconData={iconData[0]}
-          shakeDuration={400}
-          size={34}
-          className="bg-white border-2 border-gray-200 hover:border-gray-300"
-        ></InterectiveIcons>
-      </div>
+      <ToolsDiv>
+        <h3>My Current Tools:</h3>
+        <ToolList>
+          <li>
+            <ShakyIcon icon={<HtmlIcon />} toolTip="Html" size={50} />
+          </li>
+          <li>
+            <ShakyIcon icon={<CssIcon />} toolTip="Css" size={50} />
+          </li>{" "}
+          <li>
+            <ShakyIcon icon={<SassIcon />} toolTip="SCSS/LESS" size={50} />
+          </li>{" "}
+          <li>
+            <ShakyIcon
+              icon={<JavaScriptIcon />}
+              toolTip="JavaScript"
+              size={50}
+            />
+          </li>{" "}
+          {/* <li>
+            <ShakyIcon icon={<VueIcon />} toolTip="Vue" size={50} />
+          </li>{" "} */}
+          {/* <li>
+            <ShakyIcon icon={<NuxtIcon />} toolTip="Nuxt" size={50} />
+          </li>{" "} */}
+          <li>
+            <ShakyIcon icon={<ReactIcon />} toolTip="React" size={50} />
+          </li>{" "}
+          <li>
+            <ShakyIcon icon={<NodeIcon />} toolTip="Node" size={50} />
+          </li>
+        </ToolList>
+        <ToolList>
+          <li>
+            <ShakyIcon icon={<VuetifyIcon />} toolTip="Vuetify" size={50} />
+          </li>
+          <li>
+            <ShakyIcon icon={<GithubIcon />} toolTip="Github" size={50} />
+          </li>{" "}
+          <li>
+            <ShakyIcon
+              icon={<TypeScriptIcon />}
+              toolTip="TypeScript"
+              size={50}
+            />
+          </li>{" "}
+          {/* <li>
+            <ShakyIcon icon={<TailwindIcon />} toolTip="Tailwind" size={50} />
+          </li>{" "} */}
+        </ToolList>
+      </ToolsDiv>
     </AboutMeDiv>
   );
 }
+
+const ToolList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+`;
+const ToolsDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  height: 100%;
+  gap: 40px;
+  margin-top: 20px;
+  padding: 0 20px;
+  color: ${({ theme }) => theme.textColorPrimary};
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 300;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 const H2 = styled.h2`
   margin-bottom: 85px;

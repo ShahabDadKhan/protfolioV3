@@ -1,4 +1,4 @@
-const SassIcon = () => (
+const SassIcon = (props) => (
   <svg
     viewBox="0 0 73 73"
     version="1.1"

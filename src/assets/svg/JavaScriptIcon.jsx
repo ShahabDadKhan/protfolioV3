@@ -1,4 +1,4 @@
-const JavaScriptIcon = () => (
+const JavaScriptIcon = (props) => (
   <svg
     viewBox="0 0 32 32"
     fill="none"

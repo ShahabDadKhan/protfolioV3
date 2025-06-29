@@ -39,6 +39,12 @@ h2 {
   color: ${({ theme }) => theme.textColorSecondary};
 }
 
+h3 {
+  font-size: 1.4em;
+  line-height: 1.1;
+  color: ${({ theme }) => theme.textColorSecondary};
+}
+
 .highlighted-text-primary {
   font-size: 1.5rem;
   font-weight: bold;

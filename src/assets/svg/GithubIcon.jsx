@@ -1,4 +1,4 @@
-const GithubIcon = () => (
+const GithubIcon = (props) => (
   <svg
     viewBox="0 0 20 20"
     version="1.1"
@@ -6,6 +6,7 @@ const GithubIcon = () => (
     xmlns:xlink="http://www.w3.org/1999/xlink"
     fill="#ffffff"
     stroke="#ffffff"
+    {...props} // allows custom props like className, style, etc.
   >
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
     <g
@@ -45,3 +46,5 @@ const GithubIcon = () => (
     </g>
   </svg>
 );
+
+export default GithubIcon;
