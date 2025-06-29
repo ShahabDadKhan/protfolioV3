@@ -1,6 +1,29 @@
 import styled from "styled-components";
+import InterectiveIcons from "../components/InterectiveIcons";
+import MoonIcon from "../assets/svg/MoonIcon";
 
 export default function AboutMe() {
+  const iconData = [
+    {
+      id: "moon",
+      name: "Moon",
+      icon: <MoonIcon />,
+      color: "#E4405F",
+    },
+    // {
+    //   id: "javascript",
+    //   name: "JavaScript",
+    //   icon: <Code />,
+    //   color: "#F7DF1E",
+    // },
+    // {
+    //   id: "react",
+    //   name: "React",
+    //   icon: <FileCode />,
+    //   color: "#61DAFB",
+    // },
+  ];
+
   return (
     <AboutMeDiv>
       <H2>The Developer Behind the Code</H2>
@@ -35,6 +58,15 @@ export default function AboutMe() {
           excitement about what I'm about to discover.
         </span>
       </FirstDiv>
+      <div>
+        <InterectiveIcons
+          key={iconData[0].id}
+          iconData={iconData[0]}
+          shakeDuration={400}
+          size={34}
+          className="bg-white border-2 border-gray-200 hover:border-gray-300"
+        ></InterectiveIcons>
+      </div>
     </AboutMeDiv>
   );
 }
