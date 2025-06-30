@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - ci-cd # or "master" depending on your repo
+      - master # or "master" depending on your repo
 
 jobs:
   build-and-deploy:
