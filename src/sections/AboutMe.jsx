@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import ShakyIcon from "../components/ShakyIcon";
 import HtmlIcon from "../assets/svg/HtmlIcon";
 import CssIcon from "../assets/svg/CssIcon";
@@ -9,75 +9,14 @@ import NuxtIcon from "../assets/svg/NuxtIcon";
 import ReactIcon from "../assets/svg/ReactIcon";
 import NodeIcon from "../assets/svg/NodeIcon";
 import VuetifyIcon from "../assets/svg/VuetifyIcon";
-import GithubIcon from "../assets/svg/GithubIcon";
+import GithubIconDark from "../assets/svg/GithubIconDark";
+import GithubIconLight from "../assets/svg/GithubIconLight";
 import TypeScriptIcon from "../assets/svg/TypeScriptIcon";
 import TailwindIcon from "../assets/svg/TailwindIcon";
-// import MoonIcon from "../assets/svg/MoonIcon";
-// import MoonIcon from "../assets/svg/MoonIcon";
 
 export default function AboutMe() {
-  //   const iconData = [
-  //     {
-  //       id: "html",
-  //       name: "Html",
-  //       icon: <HtmlIcon />,
-  //     },
-  //     {
-  //       id: "css",
-  //       name: "Css",
-  //       icon: <CssIcon />,
-  //     },
-  //     {
-  //       id: "scss",
-  //       name: "Scss",
-  //       icon: <SassIcon />,
-  //     },
-  //     {
-  //       id: "javascript",
-  //       name: "Javascript",
-  //       icon: <JavaScriptIcon />,
-  //     },
-  //     {
-  //       id: "vue",
-  //       name: "Vue",
-  //       icon: <VueIcon />,
-  //     },
-  //     {
-  //       id: "nuxt",
-  //       name: "Nuxt",
-  //       icon: <NuxtIcon />,
-  //     },
-  //     {
-  //       id: "react",
-  //       name: "React",
-  //       icon: <ReactIcon />,
-  //     },
-  //     {
-  //       id: "node",
-  //       name: "Node",
-  //       icon: <NodeIcon />,
-  //     },
-  //     {
-  //       id: "vuitify",
-  //       name: "Vuetify",
-  //       icon: <VuetifyIcon />,
-  //     },
-  //     {
-  //       id: "github",
-  //       name: "Github",
-  //       icon: <GithubIcon />,
-  //     },
-  //     {
-  //       id: "typescript",
-  //       name: "TypeScript",
-  //       icon: <TypeScriptIcon />,
-  //     },
-  //     {
-  //       id: "tailwind",
-  //       name: "Tailwind",
-  //       icon: <TailwindIcon />,
-  //     },
-  //   ];
+  const theme = useTheme();
+  const isDarkMode = theme.mode === "light";
 
   return (
     <AboutMeDiv>
@@ -114,7 +53,9 @@ export default function AboutMe() {
         </span>
       </FirstDiv>
       <ToolsDiv>
-        <h3>My Current Tools:</h3>
+        <h3 style={{ marginTop: "0px", marginBottom: "10px" }}>
+          My Current Tools:
+        </h3>
         <ToolList>
           <li>
             <ShakyIcon icon={<HtmlIcon />} toolTip="Html" size={50} />
@@ -132,12 +73,12 @@ export default function AboutMe() {
               size={50}
             />
           </li>{" "}
-          {/* <li>
+          <li>
             <ShakyIcon icon={<VueIcon />} toolTip="Vue" size={50} />
-          </li>{" "} */}
-          {/* <li>
+          </li>{" "}
+          <li>
             <ShakyIcon icon={<NuxtIcon />} toolTip="Nuxt" size={50} />
-          </li>{" "} */}
+          </li>{" "}
           <li>
             <ShakyIcon icon={<ReactIcon />} toolTip="React" size={50} />
           </li>{" "}
@@ -150,7 +91,11 @@ export default function AboutMe() {
             <ShakyIcon icon={<VuetifyIcon />} toolTip="Vuetify" size={50} />
           </li>
           <li>
-            <ShakyIcon icon={<GithubIcon />} toolTip="Github" size={50} />
+            <ShakyIcon
+              icon={isDarkMode ? <GithubIconDark /> : <GithubIconLight />}
+              toolTip="Github"
+              size={50}
+            />
           </li>{" "}
           <li>
             <ShakyIcon
@@ -159,9 +104,9 @@ export default function AboutMe() {
               size={50}
             />
           </li>{" "}
-          {/* <li>
+          <li>
             <ShakyIcon icon={<TailwindIcon />} toolTip="Tailwind" size={50} />
-          </li>{" "} */}
+          </li>{" "}
         </ToolList>
       </ToolsDiv>
     </AboutMeDiv>
@@ -175,6 +120,7 @@ const ToolList = styled.ul`
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-top: 50px;
 
   li {
     display: flex;
@@ -191,10 +137,10 @@ const ToolsDiv = styled.div`
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  /* width: 100%; */
   height: 100%;
-  gap: 40px;
-  margin-top: 20px;
+  /* gap: 40px; */
+  height: 280px;
+  margin-top: 10px;
   padding: 0 20px;
   color: ${({ theme }) => theme.textColorPrimary};
   font-size: 1.4rem;
@@ -208,7 +154,7 @@ const ToolsDiv = styled.div`
 `;
 
 const H2 = styled.h2`
-  margin-bottom: 85px;
+  margin-bottom: 5rem;
 
   /* @media (max-width: 768px) {
     font-size: 2rem;
@@ -232,7 +178,3 @@ const FirstDiv = styled.div`
   margin-bottom: 20px;
   font-weight: 300;
 `;
-
-// <!-- I'm a 27-year-old self-taught developer with 3.9 years of experience crafting responsive web applications that work the way users expect them to.
-// What started as curiosity about how websites work has become a genuine passion for building seamless digital experiences. I'm driven by a "never settle" mindset—constantly exploring new technologies and pushing beyond what I built yesterday.
-// I approach each project with honesty about what I know and excitement about what I'm about to discover. -->

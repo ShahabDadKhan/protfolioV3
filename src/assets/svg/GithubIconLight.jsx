@@ -1,11 +1,10 @@
-const GithubIconTwo = () => (
+const GithubIconLight = () => (
   <svg
     viewBox="0 0 20 20"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    fill="#ffffff"
-    stroke="#ffffff"
+    fill="#000000"
   >
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
     <g
@@ -28,7 +27,7 @@ const GithubIconTwo = () => (
         <g
           id="Dribbble-Light-Preview"
           transform="translate(-140.000000, -7559.000000)"
-          fill="#000000"
+          fill="#ffffff"
         >
           {" "}
           <g id="icons" transform="translate(56.000000, 160.000000)">
@@ -46,4 +45,4 @@ const GithubIconTwo = () => (
   </svg>
 );
 
-export default GithubIconTwo;
+export default GithubIconLight;

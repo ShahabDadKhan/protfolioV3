@@ -1,6 +1,7 @@
 export const lightTheme = {
+  mode: "light",
   bgColorPrimary: "white",
-  bgColorSecondary: "#242424",
+  bgColorSecondary: "#1976d2",
   textColorPrimary: "black",
   textColorTertiary: "#fff",
   textColorSecondary: "#1976d2",
@@ -8,6 +9,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
+  mode: "dark",
   bgColorPrimary: "black",
   bgColorSecondary: "#242424",
   textColorPrimary: "white",
