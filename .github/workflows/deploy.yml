@@ -29,3 +29,6 @@ jobs:
         with:
           branch: gh-pages # deploy to this branch
           folder: dist # output folder from build
+          token: ${{ secrets.GH_TOKEN }} # 👈 your new PAT here
+          clean: true
+          force: true
