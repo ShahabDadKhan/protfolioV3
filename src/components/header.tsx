@@ -52,6 +52,7 @@ const HeaderNav = styled.nav`
   top: 3%;
   left: 2%;
   padding: 5px 15px;
+  z-index: 1;
   // background: ${(props) => props.bgColor}; /* dynamic background */
   width: 95%;
   height: 60px;
@@ -60,9 +61,19 @@ const HeaderNav = styled.nav`
   align-items: center;
   justify-content: space-between;
 
-  background: ${({ theme }) => theme.bgColorSecondary};
+  /* background: ${({ theme }) => theme.bgColorSecondary};
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);  */
+
+  background: ${({ theme }) =>
+    theme.mode === "dark"
+      ? "rgba(36, 36, 36, 0.7)" // dark blur
+      : "rgba(25, 118, 210, 0.6)"}; // light blur
+  /* background-color: rgba(255, 255, 255, 0.2);  */
+  backdrop-filter: blur(10px); /* Blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.2);  */
 `;
 
 const Name = styled.a`
