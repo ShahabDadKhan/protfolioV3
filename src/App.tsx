@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/header";
 import MyIntro from "./sections/MyIntro";
 import AboutMe from "./sections/AboutMe";
+import WorkExperience from "./sections/WorkExperience";
 import { darkTheme, lightTheme } from "./Theme";
 import { GlobalStyle } from "./GlobalStyles";
 
@@ -18,6 +19,7 @@ function App() {
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <MyIntro />
       <AboutMe />
+      <WorkExperience />
     </ThemeProvider>
   );
 }

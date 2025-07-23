@@ -155,11 +155,8 @@ const ToolsDiv = styled.div`
 
 const H2 = styled.h2`
   margin-bottom: 5rem;
-
-  /* @media (max-width: 768px) {
-    font-size: 2rem;
-  } */
 `;
+
 const AboutMeDiv = styled.div`
   display: flex;
   justify-content: center;
